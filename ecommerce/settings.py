@@ -29,7 +29,9 @@ PAYSTACK_SECRET_KEY = config("PAYSTACK_SECRET_API_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'seal-app-5lga8.ondigitalocean.app'
+]
 
 
 # Application definition
