@@ -1,0 +1,47 @@
+{% extends 'store/layouts/base.html' %}
+
+{% block content %}
+
+<div class="my-container">
+<div class="row">
+
+
+    <div class="left-div col-lg-6 col-md-6 col-sm-12">
+        <iframe class="login-anim" src="https://embed.lottiefiles.com/animation/51971"></iframe>
+    </div>
+
+
+    <div class="right-div col-lg-6 col-md-6 col-sm-12">
+        <div class="form-div">
+            <div class="login-h">
+                <h3>Welcome back🥳</h3>
+                <p>Sign in and start shopping.</p>
+            </div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="mb-3 col-lg-6">
+                        <label class="form-label" for="">Username</label>
+                        <input name="username" class="form-control shadow-none" type="text" autofocus>
+                    </div>
+    
+                    <div class="col-lg-6">
+                        <label class="form-label" for="">Password</label>
+                        <input name="pass" class="form-control shadow-none" type="password">
+                    </div>
+                </div>
+
+                <a style="color:white;" href="{% url 'password_reset' %}">Forgot Password?</a>
+
+                <div class="login-button-div">
+                    <button style="border:none;" class="vid-link-button" type="submit">Log in</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+{% include 'store/inc/footer.html' %}
+{% endblock content%}

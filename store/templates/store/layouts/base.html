@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/193e375498.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nuosu+SIL&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <title>{% block title %}{% endblock title %}</title>
+    <style>
+        a{
+            text-decoration:none;
+        }
+
+        .product-viewtag{
+            background-color:red;
+            color:white;
+            font-size:11px;
+            line-height:1;
+            position: absolute;
+            text-align:center;
+            text-transform:uppercase;
+            top:22px;
+            margin-left:17.5rem;
+            padding: 7px 10px;
+            font-weight:600;
+            min-width:45px;
+        }
+
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h1,h2,h3,h4,h5{
+            font-family: 'Nuosu SIL', serif;
+        }
+
+
+        
+    </style>
+    {% block customstyle %}{% endblock customstyle %}
+</head>
+<body>
+    {% include 'store/inc/navbar.html' %}
+    {% block content %}
+    
+    {% endblock content %}
+
+    {% comment "JQUERY" %}{% endcomment %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+    <script>
+    var availableTags = [];
+
+    $.ajax({
+        method:'GET',
+        url:'/product-list',
+        success: function(response){
+            startAutoComplete(response)
+        }
+    })
+
+    function startAutoComplete(availableTags){
+        $( "#search-product" ).autocomplete({
+            source: availableTags
+          });
+    }
+    </script>
+
+    {% comment %}Custom JS{% endcomment %}
+    <script src="{% static '/js/custom.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+    {% comment "Bootstrap" %}{% endcomment %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    {% comment "ALERTIFY" %}{% endcomment %}
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <script>
+        alertify.set('notifier','position', 'top-right');
+        {% for msg in messages %}
+        alertify.notify('{{msg}}', 'custom');
+        {% endfor %}
+    </script>
+    
+    {% block scripts %}
+  
+    {% endblock scripts %}
+</body>
+</html>

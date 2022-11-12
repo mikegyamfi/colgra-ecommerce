@@ -1,0 +1,89 @@
+{% comment %} {% for item in trending_products %}
+<div class="product-data item">
+    <div class="product-card col-lg-3 col-md-6 col-sm-6">
+        <div class="wishlist-icon">
+          <a href=""
+            ><i style="color: #CE0FA4" class="fa-regular fa-heart"></i
+          ></a>
+        </div>
+        <div class="prod-image-div">
+          <img
+            class="prod-image"
+            src="https://sisicouture.com/wp-content/uploads/2021/04/The-Ghanaian-Smock-for-Fashionistas-2.jpg"
+            alt=""
+          />
+        </div>
+        <div class="prod-info-div">
+          <p class="prod-name">Smock of Delui</p>
+          <p>$40.00 <span class="original-price">$70.00</span></p>
+        </div>
+      </div>
+</div>
+{% endfor %} {% endcomment %}
+
+
+
+{% comment %} <div class="card w-100">
+    <a class="text-dark" href="{% url 'prod_details' item.category.name item.name item.id%}">
+        <div class="card-body">
+            <div class="category-image">
+                <img src="{{item.product_image.url}}" alt="Product Image" class="w-100">
+            </div>
+            <h4 class="text-center">{{item.name}}</h4>
+    </a>
+    <span class="text-dark mt-3">GHs {{item.selling_price}}</span>
+        <div class="row mt-2">
+            <div class="col-md-6 mt-2">
+                {% csrf_token %}
+                <input type="hidden" value="{{item.id}}" class="prod_id">
+                
+                <div class="row">
+                    <div class="input-group text-center mb-0">
+                        <button class="input-group-text dec-btn">-</button>
+                        <input type="text" name="quantity" class="form-control qty-val text-center" value="1">
+                        <button class="input-group-text inc-btn">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 px-0">
+                <span class="text-dark float-end mt-2">
+                    {% if item.quantity > 0 %}
+                    <button type="button" class="btn btn-primary btn-sm me-3 p-2 float-start addToCart">Add to cart</button>
+                    {% else %}
+                    <button type="button" class="btn btn-danger btn-disabled btn-sm p-2 me-3 float-start">Out of Stock</button>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+    </div>
+</div> {% endcomment %}
+
+
+
+<div class="product-card item">
+    {% comment %} *********Icon************* {% endcomment %}
+    <div class="wishlist-icon">
+      <a href=""
+        ><i style="color: #CE0FA4" class="fa-regular fa-heart"></i
+      ></a>
+    </div>
+   {% comment %} ********** Icon End ******* {% endcomment %}
+
+   {% comment %} ***********Image******* {% endcomment %}
+    <div class="prod-image-div">
+      <img
+        class="prod-image"
+        src="{{product.product_image.url}}"
+        alt=""
+      />
+    </div>
+    {% comment %} ********** Image End ******* {% endcomment %}
+
+    {% comment %} *********** Info ******* {% endcomment %}
+    <div class="prod-info-div">
+      <p class="prod-name">{{product.name}}</p>
+      <p>${{product.selling_price}} <span class="original-price">${{product.original_price}}</span></p>
+    </div>
+    {% comment %} ********** Info End ******* {% endcomment %}
+
+  </div>

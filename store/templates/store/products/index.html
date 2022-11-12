@@ -1,0 +1,46 @@
+{% extends 'store/layouts/base.html' %}
+
+{% block content %}
+
+    <div class="py-3" style="background-color: #ce0fa4; margin: 20px 0">
+        <div style="color:white;" class="my-container">
+        <a style="color:white;" href="{% url 'home' %}">Home /</a>
+        <a style="color:white;" href="{% url 'collections' %}"> Collections /</a>
+        <a style="color:white;" href="{% url 'collection_products' name=category_name.name%}"> {{category_name.name}}</a> 
+        </div>
+    </div>
+
+    <div class="my-container">
+        <div>
+            <div>
+                <h2 style="color: #530241; text-align: center; margin-bottom: 0">{{category_name.name}}</h2>
+                <div class="hr"></div>
+                <div class="grid-container collection-product-data">
+                    {% for item in collection_products %}
+                            <div class="collection-card product-data">
+                                <a href="{% url 'prod_details' cat_name=item.category.name prod_name=item.name pk=item.id%}">
+                                    <div>
+                                        <div class="wishlist-icon">
+                                            <input type="hidden" value="{{item.id}}" class="prod_id">
+                                           <a href="" type="button">
+                                            {% if item in wishlisted %}
+                                                <i style="color: #f666d7;" class="fa-solid fa-heart fa-2x delete-wishlist-item-from-main"></i>
+                                            {% else %}
+                                            <i style="color: #f666d7;" class="fa-regular fa-heart fa-2x addtoWishlistfrommain"></i>
+                                            {% endif %}
+                                        </a>
+                                        </div>
+                                        <div class="category-image">
+                                            <img src="{{item.product_image.url}}" alt="Product Image">
+                                        </div>
+                                        <h4 class="text-center product-name">{{item.name}}</h4>
+                                        <p style="color: #CE0FA4" class="text-center price-text">${{item.selling_price}} <span class="original-price">${{item.original_price}}</span></p>
+                                        <p class="view-product text-center"><a href="{% url 'prod_details' cat_name=item.category.name prod_name=item.name pk=item.id%}"><i style="color: #CE0FA4;" class="fa-solid fa-arrow-right"></i></a></p>
+                                    </div>
+                                </a>
+                            </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+{% endblock content %}

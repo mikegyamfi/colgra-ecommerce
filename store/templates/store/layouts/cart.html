@@ -1,0 +1,108 @@
+{% extends 'store/layouts/base.html' %}
+
+{% block customstyle %}
+<style>
+    .empty-card {
+        margin-bottom: 30px;
+        border: 0;
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+        letter-spacing: .5px;
+        border-radius: 8px;
+        -webkit-box-shadow: 1px 5px 24px 0 rgba(68,102,242,.05);
+        box-shadow: 1px 5px 24px 0 rgba(68,102,242,.05);
+    }
+    
+    .empty-card .card-header {
+        background-color: #fff;
+        border-bottom: none;
+        padding: 24px;
+        border-bottom: 1px solid #f6f7fb;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    
+    .card-header:first-child {
+        border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+    }
+    
+    
+    
+    .empty-card .empty-card-body {
+        padding: 30px;
+        background-color: transparent;
+    }
+    
+    .btn-primary, .btn-primary.disabled, .btn-primary:disabled {
+        background-color: #4466f2!important;
+        border-color: #4466f2!important;
+    }
+</style>
+{% endblock customstyle %}
+
+{% block content %}
+
+    <div class="py-3" style="background-color: #ce0fa4; margin: 20px 0">
+        <div style="color:white;" class="my-container">
+        <a style="color:white;" href="{% url 'home' %}">Home /</a>
+        <a style="color:white;" href="{% url 'cart' %}"> Cart</a>
+        </div>
+    </div>
+
+    <div class="py-5">
+        <div class="my-container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card shadow">
+                        <div class="card-body cart_data">
+                            {% if cart %}
+                                {% for item in cart %}
+                                    <div class="mb-3 product-data">
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <div class="my-auto">
+                                                    <img src="{{item.product.product_image.url}}" height="70px" width="70px" alt="">
+                                                </div>
+                                                <div class="my-auto">
+                                                    <h6>{{item.product.name}}</h6>
+                                                </div>
+                                                <div class="my-auto">
+                                                    <h6>GHs {{item.product.selling_price|stringformat:'d'}}</h6>
+                                                </div>
+                                            </div>
+    
+                                            <div class="product-actions">
+                                                <div class="my-auto">
+                                                    <input type="hidden" class="prod_id" value={{item.product_id}}>
+                                                    {% csrf_token %}
+                                                    {% if item.product.quantity >= item.product_qty %}
+                                                        <label for="Quantity">Quantity</label>
+                                                        <div class="input-group text-center mb-3" style="width:130px;">
+                                                            <button style="border: 1px solid #FF87E5; background-color: #FF87E5; border-radius: 100%" class="input-group-text changeQty dec-btn"><i class="fa-solid fa-minus"></i></button>
+                                                            <input style="color: black;" type="text" name="quantity" class="form-control qty-val text-center" value="{{item.product_qty}}">
+                                                            <button style="border: 1px solid #FF87E5; background-color: #FF87E5; border-radius: 100%" class="input-group-text changeQty inc-btn"><i class="fa-solid fa-plus"></i></button>
+                                                        </div>
+                                                    {% else %}
+                                                    <h6>Out of Stock</h6>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="my-auto">
+                                                    <button class="btn btn-danger delete-cart-item" ><i class="fa-solid fa-trash"></i> Remove</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <hr>
+                                {% endfor %}
+                                <a class="btn btn-outline-success float-end" href="{% url 'checkout' %}">Checkout</a>
+                            {% else %}
+                                {% include 'store/inc/cartempty.html' %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+{% endblock content %}

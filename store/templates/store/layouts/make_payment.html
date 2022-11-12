@@ -1,0 +1,36 @@
+{% extends 'store/layouts/base.html' %} {% block content %}
+<div class="py-3 my-container" style="background-color: #ce0fa4; margin: 20px 0">
+  <h4>Make Payment for Order</h4>
+</div>
+
+<div class="my-container">
+  <div>Pay {{payment.amount}}</div>
+
+  <div class="form-submit">
+    <button type="submit" onclick="payWithPaystack()">Pay</button>
+  </div>
+</div>
+{% endblock content%} {% block scripts %}
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+      var paymentForm = document.getElementById('paymentForm');
+  paymentForm.addEventListener('submit', payWithPaystack, false);
+  function payWithPaystack() {
+    var handler = PaystackPop.setup({
+      key: 'pk_test_ef6fd3e45da363c9bec211e3a62348a5091621b6',
+      email: "{{payment.email}}",
+      amount: "{{payment.amount_value}}",
+      currency: 'GHS',
+      ref: '{{payment.ref}}',
+      callback: function(response) {
+        window.location.href = "{% url 'verify-payment' payment.ref %}";
+      },
+      onClose: function() {
+        alert('Transaction was not completed');
+      },
+    });
+    handler.openIframe();
+  }
+</script>
+
+{% endblock scripts %}

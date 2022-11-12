@@ -1,0 +1,167 @@
+{% extends 'store/layouts/base.html' %}
+{% load static %} {% block title %}Home Page{% endblock %}
+{% block content %} {% include 'store/inc/slider.html' %}
+
+<div class="my-container">
+  <div class="heading-div">
+    <h3 class="new-prod-heading">New Products</h3>
+    <div class="custom-hr"></div>
+  </div>
+
+  {% comment %} **************** Carousel Div ****************** {% endcomment%}
+  <div class="owl-carousel owl-theme">
+    <div
+      class="item"
+      style="width: 200px; height: 200px; background-color: aqua;"
+    ><img style="object-fit: fill; width: 200px; height: 200px" src="{% static 'images/site_images/web12.jpg' %}"></div>
+    <div
+      class="item"
+      style="width: 200px; height: 200px; background-color: aqua;"
+    ><img style="object-fit: fill; width: 200px; height: 200px" src="{% static 'images/site_images/web1.jpg' %}"></div>
+ <div
+      class="item"
+      style="width: 200px; height: 200px; background-color: aqua;"
+    ><img style="object-fit: fill; width: 200px; height: 200px" src="{% static 'images/site_images/web2.jpg' %}"></div>
+     <div
+      class="item"
+      style="width: 200px; height: 200px; background-color: aqua;"
+    ><img style="object-fit: fill; width: 200px; height: 200px" src="{% static 'images/site_images/web3.jpg' %}"></div>
+  </div>
+  {% comment %} **************** End Carousel Div ************** {% endcomment%}
+
+  <div class="hr"></div>
+
+  <div class="why-choose-us-div">
+    <h3>Why Buy From Us?</h3>
+
+    <div class="reasons">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6 one-reason">
+          <i class="fa-solid fa-headset fa-3x reason-icon"></i>
+          <p class="reason-heading"><b>24/7 Free Support</b></p>
+          <p class="reason-p">
+            Do you wish to make any enquiries concerning our services? We are always here.
+          </p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 one-reason">
+          <i class="fa-solid fa-truck-fast fa-3x reason-icon"></i>
+          <p class="reason-heading"><b>Reliable Shipping</b></p>
+          <p class="reason-p">
+            Can't pick it up yourself? We ship to you in the shortest possible time.
+          </p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 one-reason">
+          <i class="fa-solid fa-sack-dollar fa-3x reason-icon"></i>
+          <p class="reason-heading"><b>Money Back Guarantee</b></p>
+          <p class="reason-p">
+            Testing our products out? have no fear! A money-back guarantee is in place..
+          </p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 one-reason">
+          <i class="fa-solid fa-headset fa-3x reason-icon"></i>
+          <p class="reason-heading"><b>24/7 Free Support</b></p>
+          <p class="reason-p">
+            A beautiful website by an impeccable developer and you can't wait to
+            see it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hr"></div>
+
+  {% comment %} Video Div {% endcomment %}
+  <div class="video-content-div row">
+    <div class="video col-lg-4 col-md-6 col-sm-12">
+      <iframe
+        class="vid-iframe"
+        src="https://www.youtube.com/embed/tgbNymZ7vqY"
+      >
+      </iframe>
+    </div>
+    <div class="top-category col-lg-8 col-md-6 col-sm-12">
+      <h3>Top Categories</h3>
+      <div class="custom-hr-left"></div>
+      <br />
+      <p>
+        A beautiful website by an impeccable developer and you can't wait to see
+        it.
+      </p>
+      <p>
+        <a class="link" href=""
+          ><i class="fa-solid fa-arrow-right"></i> Women</a
+        >
+      </p>
+      <p>
+        <a class="link" href=""><i class="fa-solid fa-arrow-right"></i> Men</a>
+      </p>
+      <p>
+        <a class="link" href=""
+          ><i class="fa-solid fa-arrow-right"></i> Unisex</a
+        >
+      </p>
+      <p>
+        <a class="link" href=""
+          ><i class="fa-solid fa-arrow-right"></i> FootWear</a
+        >
+      </p>
+      <br />
+      <a class="vid-link-button" href="">View More</a>
+    </div>
+  </div>
+  {% comment %} *********************************************** {% endcomment %}
+  {% comment %} *************** About Colgra ********************** {%endcomment %}
+
+  <div class="about-colgra">
+    <h2>About Colgra</h2>
+    <p>
+      Welcome to Colgra Clothing. #blackowned #madeinafrica #madeinghana <br> <br> Founded
+      in 2019 by Samuel Andy Kellson, Colgra Clothing is an online African
+      fashion store that caters to fashionable Afrocentric unisex clothing. <br> <br> We
+      are a brand that transforms and creates high-quality modern and trendy
+      looks using African textiles and wax prints. <br> <br> We take pride in each of our
+      pieces being hand made in our production studio in West Africa Ghana with
+      rich fabrics sourced from different parts of Africa. <br> <br> Colgra Clothing is a
+      celebration of African culture, but not just for those with African
+      heritage. It is a way to be bold, be proud, and express yourself, whoever
+      you are.
+    </p>
+    <p>
+      <a style="color: #CE0FA4" href="{% url 'about' %}">Read More</a>
+    </p>
+  </div>
+
+  {% comment %} *************************************************** {%endcomment %}
+</div>
+
+{% include 'store/inc/footer.html' %} {% endblock content %} {% block scripts %}
+<script>
+  $(".owl-carousel").owlCarousel({
+    loop: true,
+    margin: 10,
+    dots: false,
+    nav: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    smartSpeed: 2000,
+    animateIn: "linear",
+    animateOut: "linear",
+    responsive: {
+      0: {
+        items: 2,
+      },
+      600: {
+        items: 3,
+      },
+      1000: {
+        items: 5,
+      },
+    },
+  });
+</script>
+{% endblock scripts %}

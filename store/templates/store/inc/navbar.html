@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-light px-sm-2">
+        <div class="container-fluid px-lg-5 px-md-4 px-sm-4">
+          <a style="color: #CE0FA4" class="navbar-brand" href="{% url 'home'%}"><b>Colgra Clothing</b></a>
+          <a
+          style="border: none;"
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span><i class="fa-solid fa-bars"></i></span>
+        </a>
+    
+
+      <div class="collapse navbar-collapse mx-2" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active fw-bold{% endif %}" aria-current="page" href="{% url 'home'%}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'collections' %}active fw-bold{% endif %}" href="{% url 'collections' %}">Collections</a>
+          </li>
+          <li><a class="nav-link {% if request.resolver_match.url_name == 'cart' %}active fw-bold{% endif %}" href="{% url 'cart' %}">Cart <i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li><a class="nav-link {% if request.resolver_match.url_name == 'wishlist' %}active fw-bold{% endif %}" href="{% url 'wishlist' %}">Wishlist <i class="fa-solid fa-heart"></i></a></li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-user"></i> {{request.user.username|truncatechars:5}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="{% url 'orders' %}">My Orders</a></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+          </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link {% if request.resolver_match.url_name == 'login' %}active fw-bold{% endif %}" href="{% url 'login' %}">Log in</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.resolver_match.url_name == 'register' %}active fw-bold{% endif %}" href="{% url 'register' %}">Register</a>
+            </li>
+          {% endif %}
+
+        </ul>
+        <div class="search-bar">
+          <form action="{% url 'search-product' %}" method="post">
+            {% csrf_token %}
+          <div class="input-group">
+            <input style="background-color:transparent; border:none; border-bottom: 1px solid #CE0FA4; box-shadow: none;" required name="prod_search" type="search" class="form-control search_input" id ="search-product" placeholder="Search Product">
+            <button style="background-color:transparent; border:none; " type="submit" class="input-group-text"> <i class="fa fa-search"></i> </button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,99 @@
+{% extends 'store/layouts/base.html' %}
+
+{% block content %}
+<div class="py-3" style="background-color: #ce0fa4; margin: 20px 0">
+    <div style="color:white;" class="my-container">
+    <a style="color:white;" href="{% url 'home' %}">Home /</a>
+    <a style="color:white;" href="{% url 'orders' %}"> My Orders</a>
+    </div>
+</div>
+
+<div class="my-container mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-header">
+                    <h4 class="mb-0">
+                        Order View
+                        <a class="btn btn-warning float-end text-white" href="{% url 'orders' %}"> <i class="fa fa-reply"></i>  Back</a>
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Shipping Details</h4>
+                            <div class="view-order-hr"></div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="mt-2" for=""><strong>First Name</strong></label>
+                                    <div>
+                                        {{order.fname}}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="mt-2" for=""><strong>Last Name</strong></label>
+                                    <div class="mb-2">
+                                        {{order.lname}}
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <label class="mt-2" for=""><strong>Email</strong></label>
+                            <div class="mb-2">
+                                {{order.email}}
+                            </div>
+                            <label class="mt-2" for=""><strong>Phone Number</strong></label>
+                            <div class="mb-2">
+                                {{order.phone}}
+                            </div>
+                            <label class="mt-2" for=""><strong>Address</strong></label>
+                            <div class="mb-2">
+                                {{order.address}}
+                                {{order.city}}
+                                {{order.state}}
+                                {{order.country}}
+                            </div>
+                            <label class="mt-2" for=""><strong>Zip Code</strong></label>
+                            <div class="last-order-detail">
+                                {{order.phone}}
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <h4 style="margin-bottom: 20px;">Order Details</h4>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in order_items %}
+                                        <tr>
+                                            <td>
+                                                <img src="{{item.product.product_image.url}}" alt="" height="50px" width="50px">
+                                            </td>
+                                            <td>{{item.product.name}}</td>
+                                            <td>{{item.quantity}}</td>
+                                            <td>${{item.price|floatformat:2}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            <h4 class="mb-3">Total: ${{order.total_price|floatformat:2}}</h4>
+
+                            <h6 class="mb-3"><strong>Payment Mode</strong>: {{order.payment_mode}} {% if order.payment_mode == "COD" %}(Cash on Delivery){% endif %}</h6>
+                            <h6 class="mb-3"><strong>Order Status</strong>: {{order.status}}</h6>
+                            <h6 class="mb-3"><strong>Tracking Number</strong>: {{order.tracking_number}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
