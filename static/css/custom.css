@@ -794,6 +794,13 @@ label:focus
     margin-right: auto;
   }
 
+  .new-prod-heading {
+    text-align: center;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .category-image {
     justify-content: center;
     margin-left: auto;
@@ -864,8 +871,11 @@ label:focus
     margin-right: auto;
   }
 
-  .new-prod-heading{
-    margin-top: 20px;
+  .new-prod-heading {
+    text-align: center;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .newsletter-input {
