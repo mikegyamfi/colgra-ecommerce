@@ -923,16 +923,16 @@ label:focus
 
   .newsletter {
     justify-content: center;
-    display: inline-block;
+    display: block;
     text-align: left;
   }
 
   .newsletter-input {
-    margin: 20px 0;
+    margin: 20px 0 10px;
   }
 
   .newsletter-input:focus {
-    margin: 20px 0;
+    margin: 20px 0 10px;
   }
 
   .my-container {
