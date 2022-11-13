@@ -7,6 +7,11 @@ from store.checkout import checkoutviews
 from store.orders import orderviews
 from store.comments import comment_views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+
 urlpatterns = [
     path('', views.home, name='home'),
     path('about', views.about, name='about'),
@@ -42,4 +47,4 @@ urlpatterns = [
     path('add-comment/', comment_views.add_to_comments, name='add-comment'),
     path('delete-comment/', comment_views.delete_comment, name='delete-comment')
     
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
