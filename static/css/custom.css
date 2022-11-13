@@ -953,12 +953,6 @@ label:focus
     position: relative;
   }
 
-  .collection-container,
-  ::after,
-  ::before {
-    box-sizing: content-box !important;
-  }
-
   .detail-hr {
     width: 100%;
     background-color: #ce0fa4;
