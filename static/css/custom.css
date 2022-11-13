@@ -342,7 +342,6 @@ label:focus
 .newsletter-input {
   display: inline-block;
   border: 0;
-  width: 400px;
   height: 30px;
   border-radius: 2px 0 0 2px;
   padding: 25px 20px;
@@ -359,7 +358,6 @@ label:focus
   display: inline-block;
   outline: #f666d7 solid 1px;
   border: 1px solid #ce0fa4;
-  width: 400px;
   height: 30px;
   border-radius: 4px 0 0 2px;
   padding: 25px 20px;
