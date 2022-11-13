@@ -929,6 +929,7 @@ label:focus
 
   .newsletter-input {
     margin: 20px 0 10px;
+    width: 90%;
   }
 
   .newsletter-input:focus {
