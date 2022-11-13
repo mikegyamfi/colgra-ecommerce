@@ -49,14 +49,11 @@
         h1,h2,h3,h4,h5{
             font-family: 'Nuosu SIL', serif;
         }
-
-
-        
     </style>
     {% block customstyle %}{% endblock customstyle %}
 </head>
 <body>
-    {% include 'store/inc/navbar.html' %}
+    {% comment %} {% include 'store/inc/navbar.html' %} {% endcomment %}
     {% block content %}
     
     {% endblock content %}
