@@ -103,7 +103,7 @@ DATABASES = {
         'PORT': config("DATABASE_PORT"),
         'NAME': 'colgradb',
         'USERNAME': config("DATABASE_USERNAME"),
-        'PASSWORD': config("DATABASE_PASSWORD"),
+        'PASSWORD': 'AVNS_zBSNxZaa9syLE22kDiF',
         'DATABASE': 'colgradb',
         'OPTIONS': {
             'sslmode': 'require'
