@@ -79,13 +79,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'dmcaprivacy.wsgi.application'
-# WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASE_URL = config('DATABASE_URL', None)
+# DATABASE_URL = os.getenv('DATABASE_URL', None)
 
 # if not DATABASE_URL:
 #     DATABASES = {
@@ -95,17 +94,18 @@ DATABASE_URL = config('DATABASE_URL', None)
 #         }
 #     }
 # else:
-db_info = DATABASE_URL
+    # db_info = urlparse(DATABASE_URL)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'host': db_info.hostname,
+        'host': 'app-8545bf9d-7783-4bc8-a5a5-3e51eb86a771-do-user-11746924-0.b.db.ondigitalocean.com',
         'NAME': 'colgra-db',
-        'port': db_info.port,
-        'username' : db_info.username,
-        'password' :db_info.password,
+        'port': '25060',
+        'username' : 'colgra-db',
+        'password' :'AVNS_g2vnX299S0MKdYDIum4',
+        'database' : 'colgra-db',
         'OPTIONS': {
-            'sslmode': 'require'
+
         }
     }
 }
