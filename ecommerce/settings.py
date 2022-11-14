@@ -99,11 +99,11 @@ WSGI_APPLICATION = 'dmcaprivacy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'host': os.environ.get("DATABASE_HOST"),
-        'port': os.environ.get("DATABASE_PORT"),
+        'HOST': os.environ.get("DATABASE_HOST"),
+        'PORT': os.environ.get("DATABASE_PORT"),
         'NAME': 'colgradb',
-        'username' : os.environ.get("DATABASE_USERNAME"),
-        'password' :os.environ.get("DATABASE_PASSWORD"),
+        'USERNAME' : os.environ.get("DATABASE_USERNAME"),
+        'PASSWORD' :os.environ.get("DATABASE_PASSWORD"),
         'database' : 'colgradb',
     }
 }
