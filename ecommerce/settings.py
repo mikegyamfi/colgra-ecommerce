@@ -105,7 +105,7 @@ DATABASES = {
         'password' :'AVNS_g2vnX299S0MKdYDIum4',
         'database' : 'colgra-db',
         'OPTIONS': {
-
+            'sslmode'  : 'require'
         }
     }
 }
