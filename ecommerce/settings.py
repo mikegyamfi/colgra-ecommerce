@@ -95,9 +95,10 @@ WSGI_APPLICATION = 'dmcaprivacy.wsgi.application'
 #     }
 # else:
     # db_info = urlparse(DATABASE_URL)
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'host': os.environ.get("DATABASE_HOST"),
         'port': os.environ.get("DATABASE_PORT"),
         'NAME': 'colgradb',
