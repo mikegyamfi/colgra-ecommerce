@@ -87,28 +87,28 @@ WSGI_APPLICATION = 'dmcaprivacy.wsgi.application'
 
 DATABASE_URL = os.getenv('DATABASE_URL', None)
 
-if not DATABASE_URL:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+# if not DATABASE_URL:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
+# else:
+db_info = urlparse(DATABASE_URL)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'host': db_info.hostname,
+        'NAME': 'colgra-db',
+        'port': db_info.port,
+        'username' : db_info.username,
+        'password' :db_info.password,
+        'OPTIONS': {
+            'sslmode': 'require'
         }
     }
-else:
-    db_info = urlparse(DATABASE_URL)
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'host': db_info.hostname,
-            'NAME': 'colgra-db',
-            'port': db_info.port,
-            'username' : db_info.username,
-            'password' :db_info.password,
-            'OPTIONS': {
-                'sslmode': 'require'
-            }
-        }
-    }
+}
 
 
 # Password validation
