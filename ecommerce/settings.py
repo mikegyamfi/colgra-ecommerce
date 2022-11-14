@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
+from urllib.parse import urlparse
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -77,25 +79,36 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'dmcaprivacy.wsgi.application'
+# WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'host': 'app-8545bf9d-7783-4bc8-a5a5-3e51eb86a771-do-user-11746924-0.b.db.ondigitalocean.com',
-        'NAME': 'colgra-db',
-        'port': '25060',
-        'username' : 'colgra-db',
-        'password' :'AVNS_g2vnX299S0MKdYDIum4',
-        'database' : 'colgra-db',
-        'OPTIONS': {
+DATABASE_URL = os.getenv('DATABASE_URL', None)
 
+if not DATABASE_URL:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-}
+else:
+    db_info = urlparse(DATABASE_URL)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'host': db_info.hostname,
+            'NAME': 'colgra-db',
+            'port': db_info.port,
+            'username' : db_info.username,
+            'password' :db_info.password,
+            'OPTIONS': {
+                'sslmode': 'require'
+            }
+        }
+    }
 
 
 # Password validation
