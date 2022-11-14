@@ -95,7 +95,7 @@ DATABASE_URL = config('DATABASE_URL', None)
 #         }
 #     }
 # else:
-db_info = urlparse(DATABASE_URL, None)
+db_info = DATABASE_URL
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
