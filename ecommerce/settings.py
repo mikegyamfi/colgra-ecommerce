@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'dmcaprivacy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASE_URL = os.getenv('DATABASE_URL', None)
+DATABASE_URL = config('DATABASE_URL', None)
 
 # if not DATABASE_URL:
 #     DATABASES = {
