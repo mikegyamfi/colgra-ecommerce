@@ -104,9 +104,6 @@ DATABASES = {
         'username' : config("DATABASE_USERNAME"),
         'password' :config("DATABASE_PASSWORD"),
         'database' : 'colgradb',
-        'OPTIONS': {
-            'sslmode'  : 'require'
-        }
     }
 }
 
