@@ -3,6 +3,11 @@
   padding-right: 60px;
 }
 
+body{
+  margin: 0;
+  padding: 0;
+}
+
 .hero-slider{
 height: 100vh !important;
 }
@@ -337,8 +342,8 @@ label:focus
 .newsletter-input {
   display: inline-block;
   border: 0;
-  width: 400px;
   height: 30px;
+  width: 400px;
   border-radius: 2px 0 0 2px;
   padding: 25px 20px;
   margin: 0 0 0 30px;
@@ -354,7 +359,6 @@ label:focus
   display: inline-block;
   outline: #f666d7 solid 1px;
   border: 1px solid #ce0fa4;
-  width: 400px;
   height: 30px;
   border-radius: 4px 0 0 2px;
   padding: 25px 20px;
@@ -790,6 +794,13 @@ label:focus
     margin-right: auto;
   }
 
+  .new-prod-heading {
+    text-align: center;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .category-image {
     justify-content: center;
     margin-left: auto;
@@ -819,8 +830,19 @@ label:focus
   }
 
   .my-container {
-    margin-left: 10px;
-    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .newsletter-input {
+    display: inline-block;
+    border: 0;
+    height: 30px;
+    width: 200px;
+    border-radius: 2px 0 0 2px;
+    padding: 25px 20px;
+    margin: 0 0 0 30px;
+    transition: all 500ms ease;
   }
 
   .collection-container {
@@ -847,6 +869,24 @@ label:focus
     height: auto;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .new-prod-heading {
+    text-align: center;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .newsletter-input {
+    display: inline-block;
+    border: 0;
+    height: 30px;
+    width: 90px;
+    border-radius: 2px 0 0 2px;
+    padding: 25px 20px;
+    margin: 0 0 0 30px;
+    transition: all 500ms ease;
   }
 
   .view-product:hover {
@@ -914,21 +954,20 @@ label:focus
 
   .newsletter {
     justify-content: center;
-    display: inline-block;
+    display: block;
     text-align: left;
   }
 
   .newsletter-input {
-    margin: 20px 0;
+    margin: 20px 0 10px;
+    width: 90%;
   }
 
   .newsletter-input:focus {
-    margin: 20px 0;
+    margin: 20px 0 10px;
   }
 
   .my-container {
-    margin-left: 10px;
-    margin-right: 10px;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -936,7 +975,6 @@ label:focus
   .collection-container {
     padding-left: 10px;
     padding-right: 10px;
-    box-sizing: content-box !important;
   }
 
   .login-container {
@@ -949,12 +987,6 @@ label:focus
     padding: 20px 10px;
     justify-content: center;
     position: relative;
-  }
-
-  .collection-container,
-  ::after,
-  ::before {
-    box-sizing: content-box !important;
   }
 
   .detail-hr {
