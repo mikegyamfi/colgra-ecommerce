@@ -99,11 +99,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'host': 'app-8545bf9d-7783-4bc8-a5a5-3e51eb86a771-do-user-11746924-0.b.db.ondigitalocean.com',
-        'NAME': 'colgra-db',
+        'NAME': 'doadmin',
         'port': '25060',
         'username' : 'colgra-db',
-        'password' :'AVNS_g2vnX299S0MKdYDIum4',
-        'database' : 'colgra-db',
+        'password' :'AVNS_t8nwF35qBqpvr1eDWvf',
+        'database' : 'defaultdb',
         'OPTIONS': {
             'sslmode'  : 'require'
         }
