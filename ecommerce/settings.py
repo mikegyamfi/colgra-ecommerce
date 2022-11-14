@@ -100,7 +100,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'host': config("DATABASE_HOST"),
         'port': config("DATABASE_PORT"),
-        'NAME': 'colgradb',
+        'NAME': 'colgra-ecommerce',
         'username' : config("DATABASE_USERNAME"),
         'password' :config("DATABASE_PASSWORD"),
         'database' : 'colgradb',
