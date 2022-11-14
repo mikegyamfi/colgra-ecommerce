@@ -97,12 +97,12 @@ WSGI_APPLICATION = 'dmcaprivacy.wsgi.application'
     # db_info = urlparse(DATABASE_URL)
 DATABASES = {
     'default': {
-        'ENGINE': 'postgresql_psycopg2',
-        'host': config("DATABASE_HOST"),
-        'port': config("DATABASE_PORT"),
-        'NAME': 'colgra-ecommerce',
-        'username' : config("DATABASE_USERNAME"),
-        'password' :config("DATABASE_PASSWORD"),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'host': os.environ("DATABASE_HOST"),
+        'port': os.environ("DATABASE_PORT"),
+        'NAME': 'colgradb',
+        'username' : os.environ("DATABASE_USERNAME"),
+        'password' :os.environ("DATABASE_PASSWORD"),
         'database' : 'colgradb',
     }
 }
