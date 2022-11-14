@@ -102,9 +102,12 @@ DATABASES = {
         'HOST': config("DATABASE_HOST"),
         'PORT': config("DATABASE_PORT"),
         'NAME': 'colgradb',
-        'USERNAME' : config("DATABASE_USERNAME"),
-        'PASSWORD' :config("DATABASE_PASSWORD"),
-        'DATABASE' : 'colgradb',
+        'USERNAME': config("DATABASE_USERNAME"),
+        'PASSWORD': config("DATABASE_PASSWORD"),
+        'DATABASE': 'colgradb',
+        'OPTIONS': {
+            'sslmode': 'require'
+        }
     }
 }
 
