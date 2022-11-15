@@ -97,13 +97,13 @@ DATABASE_URL = os.getenv('DATABASE_URL', None)
 db_info = urlparse(DATABASE_URL)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': db_info.hostname,
-        'PORT': db_info.port,
-        'NAME': 'colgradb',
-        'USERNAME': 'colgradb',
-        'PASSWORD': db_info.password,
-        'DATABASE': 'colgradb',
+        'ENGINE':'django.db.backends.postgresql_psycopg2',
+        'HOST':db_info.hostname,
+        'PORT':db_info.port,
+        'NAME':'colgradb',
+        'USERNAME':'colgradb',
+        'PASSWORD':db_info.password,
+        'DATABASE':'colgradb',
         'OPTIONS': {
             'sslmode': 'require'
         }
