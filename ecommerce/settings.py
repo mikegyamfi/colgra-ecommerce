@@ -32,7 +32,7 @@ PAYSTACK_SECRET_KEY = config("PAYSTACK_SECRET_API_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'seal-app-5lga8.ondigitalocean.app'
+    'colgra-7px5n.ondigitalocean.app'
 ]
 
 
