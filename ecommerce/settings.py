@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASE_URL = os.getenv('DATABASE_URL', None)
+DATABASE_URL = config('DATABASE_URL')
 
 
 # DATABASES = {
