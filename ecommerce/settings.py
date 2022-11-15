@@ -103,7 +103,7 @@ DATABASES = {
         'NAME': db_info.path,
         'USERNAME': db_info.username,
         'PASSWORD': db_info.password,
-        'DATABASE': 'colgradb',
+        'DATABASE': 'app-65ce5fbc-f789-4564-97df-fb96f407fb49',
         'OPTIONS': {
             'sslmode': 'require'
         }
