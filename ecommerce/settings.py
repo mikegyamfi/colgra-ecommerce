@@ -100,8 +100,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST': db_info.hostname,
         'PORT': db_info.port,
-        'NAME': db_info.path,
-        'USERNAME': db_info.username,
+        'NAME': 'colgradb',
+        'USERNAME': 'colgradb',
         'PASSWORD': db_info.password,
         'DATABASE': 'colgradb',
         'OPTIONS': {
