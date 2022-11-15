@@ -84,31 +84,31 @@ WSGI_APPLICATION = 'dmcaprivacy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASE_URL = os.getenv('DATABASE_URL', None)
+# DATABASE_URL = os.getenv('DATABASE_URL', None)
 
-# if not DATABASE_URL:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
-# else:
-db_info = urlparse(DATABASE_URL)
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': db_info.hostname,
-        'PORT': db_info.port,
-        'NAME': db_info.path,
-        'USERNAME': db_info.username,
-        'PASSWORD': db_info.password,
-        'DATABASE': 'app-65ce5fbc-f789-4564-97df-fb96f407fb49',
-        'OPTIONS': {
-            'sslmode': 'require'
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# db_info = urlparse(DATABASE_URL)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'HOST': db_info.hostname,
+#         'PORT': db_info.port,
+#         'NAME': db_info.path,
+#         'USERNAME': db_info.username,
+#         'PASSWORD': db_info.password,
+#         'DATABASE': 'app-65ce5fbc-f789-4564-97df-fb96f407fb49',
+#         'OPTIONS': {
+#             'sslmode': 'require'
+#         }
+#     }
+# }
 
 
 # Password validation
