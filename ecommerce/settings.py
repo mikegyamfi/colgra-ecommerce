@@ -101,10 +101,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': config("DATABASE_HOST"),
         'PORT': config("DATABASE_PORT"),
-        'NAME': 'defaultdb',
+        'NAME': 'app-65ce5fbc-f789-4564-97df-fb96f407fb49',
         'USERNAME': config("DATABASE_USERNAME"),
         'PASSWORD': config("DATABASE_PASSWORD"),
-        'DATABASE': 'defaultdb',
+        'DATABASE': 'colgradb',
         'OPTIONS': {
             'sslmode': 'require'
         }
