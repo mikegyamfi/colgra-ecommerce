@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'dmcaprivacy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASE_URL = os.getenv('DATABASE_URL', None)
+DATABASE_URL = config('DATABASE_URL')
 
 # if not DATABASE_URL:
 #     DATABASES = {
@@ -94,16 +94,16 @@ WSGI_APPLICATION = 'dmcaprivacy.wsgi.application'
 #         }
 #     }
 # else:
-    # db_info = urlparse(DATABASE_URL)
+db_info = urlparse(DATABASE_URL)
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': config("DATABASE_HOST"),
-        'PORT': config("DATABASE_PORT"),
-        'NAME': 'app-65ce5fbc-f789-4564-97df-fb96f407fb49',
-        'USERNAME': config("DATABASE_USERNAME"),
-        'PASSWORD': config("DATABASE_PASSWORD"),
+        'HOST': db_info.host,
+        'PORT': db_info.port,
+        'NAME': db_info.name,
+        'USERNAME': db_info.username,
+        'PASSWORD': db_info.password,
         'DATABASE': 'colgradb',
         'OPTIONS': {
             'sslmode': 'require'
