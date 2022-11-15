@@ -6,6 +6,32 @@ import datetime
 import os
 from .paystack import Paystack
 from django.contrib.auth.models import AbstractUser
+import boto3
+
+# configure session and client
+session = boto3.session.Session()
+client = session.client(
+    's3',
+    region_name='fra1',
+    endpoint_url='fra1.digitaloceanspaces.com',
+    aws_access_key_id='DO00ZZN3KPBEZ6VLDMDD',
+    aws_secret_access_key='5EHq5T2fnIkS0rgQbPi55F0k6wjXHCbBiQ/90gPOADc',
+)
+
+# create new bucket
+client.create_bucket(Bucket='colgra-bucket')
+
+# upload file
+def upload_file(filename):
+    data = open(filename, 'rb')
+    return client.put_object(Key=filename, Body=data)
+
+# download file
+# client.download_file(
+#     Bucket='your-bucket-name',
+#     Key='test.txt',
+#     Filename='tmp/test.txt',
+# )
 
 # Create your models here.
 
@@ -27,7 +53,7 @@ class CustomUser(AbstractUser):
 class Category(models.Model):
     slug = models.CharField(max_length=250, null=False, blank=False)
     name = models.CharField(max_length=250, null=False, blank=True)
-    image = models.ImageField(upload_to=get_file_path, null=True, blank=True)
+    image = models.ImageField(upload_to=upload_file, null=True, blank=True)
     description = models.TextField(max_length=600, null=False, blank=False)
     status = models.BooleanField(default=False, help_text="0=default, 1=Hidden")
     trending = models.BooleanField(default=False, help_text="0=default, 1=Trending")
@@ -43,7 +69,7 @@ class Category(models.Model):
 class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(max_length=250, null=False, blank=True)
-    product_image = models.ImageField(upload_to=get_file_path, null=True, blank=True)
+    product_image = models.ImageField(upload_to=upload_file, null=True, blank=True)
     description = models.TextField(max_length=600, null=False, blank=False)
     quantity = models.PositiveIntegerField(null=False, blank=False)
     original_price = models.FloatField(null=False, blank=False)
