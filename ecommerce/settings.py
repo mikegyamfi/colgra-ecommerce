@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASE_URL = config('DATABASE_URL')
+# DATABASE_URL = config('DATABASE_URL')
 
 
 # DATABASES = {
@@ -94,15 +94,15 @@ DATABASE_URL = config('DATABASE_URL')
 #     }
 # }
 
-db_info = urlparse(DATABASE_URL)
+# db_info = urlparse(DATABASE_URL)
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'HOST':db_info.hostname,
-        'PORT':db_info.port,
-        'NAME':db_info.path,
-        'USERNAME':db_info.username,
-        'PASSWORD':db_info.password,
+        'HOST': config("DATABASE_HOST"),
+        'PORT': config("DATABASE_PORT"),
+        'NAME': 'colgradb',
+        'USERNAME': config("DATABASE_USERNAME"),
+        'PASSWORD': config("DATABASE_PASSWORD"),
         'OPTIONS': {
             'sslmode': 'require'
         }
