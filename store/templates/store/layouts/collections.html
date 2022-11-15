@@ -19,7 +19,7 @@
         <a href="{% url 'collection_products' item.name%}">
           <div>
             <div class="category-image ml-auto">
-              <img src="{{item.product_image.url}}" alt="Category Image" />
+              <img src="{{item.image.url}}" alt="Category Image" />
             </div>
             <p class="text-center mt-2 product-name">{{item.name}}</p>
             <p class="text-center view-product"><a href="{% url 'collection_products' item.name%}"><i style="color: #CE0FA4;" class="fa-solid fa-arrow-right"></i></a></p>
