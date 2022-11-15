@@ -103,9 +103,6 @@ DATABASES = {
         'NAME':db_info.path,
         'USERNAME':db_info.username,
         'PASSWORD':db_info.password,
-        'OPTIONS': {
-            'sslmode': 'require'
-        }
     }
 }
 
