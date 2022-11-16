@@ -24,7 +24,7 @@
                                             <input type="hidden" value="{{item.id}}" class="prod_id">
                                            <a href="" type="button">
                                             {% if item in wishlisted %}
-                                            {% if request.user == current_user %}
+                                            {% if current_user.name == request.user.name %}
                                                 <i style="color: #f666d7;" class="fa-solid fa-heart fa-2x delete-wishlist-item-from-main"></i>
                                             {% endif %}  
                                             {% else %}
