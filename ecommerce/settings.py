@@ -171,6 +171,7 @@ AWS_DEFAULT_ACL = 'public-read'
 
 AWS_S3_SIGNATURE_VERSION = config("AWS_S3_SIGNATURE_VERSION")
 
+MEDIA_LOCATION = 'media'
 MEDIA_URL =  'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, 'mediafiles')
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 

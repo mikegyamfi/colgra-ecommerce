@@ -6,7 +6,7 @@ import datetime
 import os
 from .paystack import Paystack
 from django.contrib.auth.models import AbstractUser
-
+from custom_storages import MediaStorage
 
 # Create your models here.
 
@@ -28,7 +28,7 @@ class CustomUser(AbstractUser):
 class Category(models.Model):
     slug = models.CharField(max_length=250, null=False, blank=False)
     name = models.CharField(max_length=250, null=False, blank=True)
-    image = models.ImageField(upload_to=get_file_path, null=True, blank=True)
+    image = models.ImageField(storage=MediaStorage, null=True, blank=True)
     description = models.TextField(max_length=600, null=False, blank=False)
     status = models.BooleanField(default=False, help_text="0=default, 1=Hidden")
     trending = models.BooleanField(default=False, help_text="0=default, 1=Trending")
@@ -44,7 +44,7 @@ class Category(models.Model):
 class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(max_length=250, null=False, blank=True)
-    product_image = models.ImageField(upload_to=get_file_path, null=True, blank=True)
+    product_image = models.ImageField(storage=MediaStorage(), null=True, blank=True)
     description = models.TextField(max_length=600, null=False, blank=False)
     quantity = models.PositiveIntegerField(null=False, blank=False)
     original_price = models.FloatField(null=False, blank=False)
