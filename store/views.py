@@ -30,7 +30,7 @@ def collection_products(request, name):
         for product in products:
             if models.Wishlist.objects.filter(product_id = product.id):
                 wishlisted.append(product)
-        context = {'collection_products':products, 'category_name':category_name, 'wishlisted':wishlisted}
+        context = {'collection_products':products, 'category_name':category_name, 'wishlisted':wishlisted, 'current_user':request.user}
         return render(request, 'store/products/index.html', context=context)
     else:
         messages.warning(request, "Link is broken")
