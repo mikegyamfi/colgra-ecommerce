@@ -23,8 +23,10 @@
                                         <div class="wishlist-icon">
                                             <input type="hidden" value="{{item.id}}" class="prod_id">
                                            <a href="" type="button">
-                                            {% if item in wishlisted and request.user == current_user %}
+                                            {% if item in wishlisted %}
+                                            {% if request.user == current_user %}
                                                 <i style="color: #f666d7;" class="fa-solid fa-heart fa-2x delete-wishlist-item-from-main"></i>
+                                            {% endif %}  
                                             {% else %}
                                             <i style="color: #f666d7;" class="fa-regular fa-heart fa-2x addtoWishlistfrommain"></i>
                                             {% endif %}
