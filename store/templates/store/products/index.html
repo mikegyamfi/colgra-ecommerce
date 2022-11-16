@@ -35,7 +35,7 @@
                                         </div>
                                         <h4 class="text-center product-name">{{item.name}}</h4>
                                         <p style="color: #CE0FA4" class="text-center price-text">${{item.selling_price}} <span class="original-price">${{item.original_price}}</span></p>
-                                        <p class="view-product text-center"><a href="{% url 'prod_details' cat_name=item.category.name prod_name=item.name pk=item.id%}"><i style="color: #CE0FA4;" class="fa-solid fa-arrow-right"></i></a></p>
+                                        {% comment %} <p class="view-product text-center"><a href="{% url 'prod_details' cat_name=item.category.name prod_name=item.name pk=item.id%}"><i style="color: #CE0FA4;" class="fa-solid fa-arrow-right"></i></a></p> {% endcomment %}
                                     </div>
                                 </a>
                             </div>
