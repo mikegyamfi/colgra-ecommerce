@@ -6,7 +6,7 @@ import datetime
 import os
 from .paystack import Paystack
 from django.contrib.auth.models import AbstractUser
-from custom_storages import MediaStorage
+from .custom_storages import MediaStorage
 
 # Create your models here.
 
