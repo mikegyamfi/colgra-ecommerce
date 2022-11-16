@@ -20,18 +20,16 @@
                             <div class="collection-card product-data">
                                 <a href="{% url 'prod_details' cat_name=item.category.name prod_name=item.name pk=item.id%}">
                                     <div>
-                                        {% comment %} <div class="wishlist-icon">
+                                        <div class="wishlist-icon">
                                             <input type="hidden" value="{{item.id}}" class="prod_id">
                                            <a href="" type="button">
                                             {% if item in wishlisted %}
-                                            {% if current_user.name == request.user.name %}
                                                 <i style="color: #f666d7;" class="fa-solid fa-heart fa-2x delete-wishlist-item-from-main"></i>
-                                            {% endif %}  
                                             {% else %}
                                             <i style="color: #f666d7;" class="fa-regular fa-heart fa-2x addtoWishlistfrommain"></i>
                                             {% endif %}
                                         </a>
-                                        </div> {% endcomment %}
+                                        </div>
                                         <div class="category-image">
                                             <img src="{{item.product_image.url}}" alt="Product Image">
                                         </div>
