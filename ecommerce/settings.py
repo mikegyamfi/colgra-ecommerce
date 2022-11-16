@@ -155,7 +155,23 @@ STATICFILES_DIRS = [BASE_DIR/'static/']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR/'mediafiles/'
+AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
+
+AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
+
+AWS_STORAGE_BUCKET_NAME = config("AWS_STORAGE_BUCKET_NAME")
+
+AWS_S3_ENDPOINT_URL = config("AWS_S3_ENDPOINT_URL")
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+
+AWS_DEFAULT_ACL = 'public-read'
+
+AWS_S3_SIGNATURE_VERSION = config("AWS_S3_SIGNATURE_VERSION")
+
+MEDIA_URL =  'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, 'mediafiles')
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 AUTH_USER_MODEL = 'store.CustomUser'
