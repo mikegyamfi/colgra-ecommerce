@@ -66,12 +66,12 @@ def password_reset_request(request):
 				c = {
                     "name": user.first_name,
 				    "email":user.email,
-					'domain':'127.0.0.1:8000',
-					'site_name': 'Website',
+					'domain':'www.colgraclothing.com',
+					'site_name': 'Colgra Clothing',
 					"uid": urlsafe_base64_encode(force_bytes(user.pk)),
 					"user": user,
 					'token': default_token_generator.make_token(user),
-					'protocol': 'http',
+					'protocol': 'https',
 				}
 				email = render_to_string(email_template_name, c)
 				requests.get(f"https://sms.arkesel.com/sms/api?action=send-sms&api_key=WlZGdW9CdUxaeWJsc2hld1BTaU0&to=0{user.phone_number}&from=Colgra&sms={email}")
