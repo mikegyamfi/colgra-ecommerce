@@ -32,7 +32,8 @@ PAYSTACK_SECRET_KEY = config("PAYSTACK_SECRET_API_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'colgra-7px5n.ondigitalocean.app'
+    'colgra-7px5n.ondigitalocean.app',
+    'https://www.colgraclothing.com/'
 ]
 
 
