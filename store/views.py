@@ -28,7 +28,7 @@ def collection_products(request, name):
         category_name = models.Category.objects.filter(name=name).first()
         wishlisted = []
         for product in products:
-            if models.Wishlist.objects.filter(product_id = product.id, user=request.user):
+            if models.Wishlist.objects.filter(product_id = product.id):
                 wishlisted.append(product)
         context = {'collection_products':products, 'category_name':category_name, 'wishlisted':wishlisted, 'current_user':request.user}
         return render(request, 'store/products/index.html', context=context)
