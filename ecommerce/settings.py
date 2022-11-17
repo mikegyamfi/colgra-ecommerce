@@ -33,7 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'colgra-7px5n.ondigitalocean.app',
-    'https://www.colgraclothing.com/'
+    'www.colgraclothing.com'
 ]
 
 
