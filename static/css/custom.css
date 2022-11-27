@@ -710,6 +710,7 @@ label:focus
     margin-left: 30px;
     transition: all 500ms ease;
   }
+
   .product {
     padding-left: 10px;
     padding-right: 10px;
@@ -784,8 +785,7 @@ label:focus
     margin: 0;
     display: grid;
     justify-content: center;
-    gap: 1.5rem;
-    box-sizing: content-box;
+    gap: 10px;
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1005,8 +1005,7 @@ label:focus
     margin: 0;
     display: grid;
     justify-content: center;
-    gap: 1.5rem;
-    box-sizing: content-box;
+    gap: 10px;
     grid-template-columns: repeat(2, 1fr);
   }
 
