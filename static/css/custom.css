@@ -822,7 +822,8 @@ label:focus
   }
 
   .product-name {
-    font-size: 19px;
+    font-size: 17px;
+    font-weight: 300;
   }
 
   .price-text {
