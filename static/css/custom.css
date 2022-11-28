@@ -901,7 +901,7 @@ label:focus
   }
 
   .product-name {
-    font-size: 19px;
+    font-size: 16px;
   }
 
   .price-text {
@@ -1010,6 +1010,8 @@ label:focus
     gap: 0;
     grid-template-columns: repeat(2, 1fr);
   }
+
+
 
   
 }
