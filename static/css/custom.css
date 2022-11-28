@@ -405,6 +405,7 @@ label:focus
 
 .product-name {
   color: #530241;
+  font-family: 'Poppins', sans-serif;;
 }
 
 .view-product {
@@ -901,11 +902,16 @@ label:focus
   }
 
   .product-name {
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 300;
   }
 
   .price-text {
     font-size: 13px;
+  }
+
+  .original-price{
+    font-size: 12px;
   }
 
   .category-image {
