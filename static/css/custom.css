@@ -546,6 +546,15 @@ label:focus
 
 /* ************************************************* Responsiveness from Dream*************************************************** */
 
+
+@media screen and (max-width: 1300px) {
+  .product-name {
+    color: #530241;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;;
+  }
+}
+
 @media screen and (max-width: 1080px) {
   .footer {
     margin-top: 50px;
