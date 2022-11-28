@@ -721,7 +721,7 @@ label:focus
   }
 
   .product-name {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 300;
   }
 
@@ -778,6 +778,14 @@ label:focus
     margin: 10px auto 30px auto;
   }
 
+  .grid-container {
+    margin: 0;
+    display: grid;
+    justify-content: center;
+    gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .top-category:hover {
     box-shadow: 0 0 0;
   }
@@ -792,7 +800,7 @@ label:focus
     margin: 0;
     display: grid;
     justify-content: center;
-    gap: 10px;
+    gap: 5px;
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -827,7 +835,7 @@ label:focus
   }
 
   .product-name {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 300;
   }
 
