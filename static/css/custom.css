@@ -720,6 +720,11 @@ label:focus
     justify-content: space-evenly;
   }
 
+  .product-name {
+    font-size: 17px;
+    font-weight: 300;
+  }
+
   .product-details {
     width: 100%;
     display: flex;
