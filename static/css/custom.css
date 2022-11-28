@@ -990,9 +990,10 @@ label:focus
   .collection-card {
     border: 1px solid #f666d7;
     border-radius: 3px;
-    padding: 20px 10px;
+    padding: 20px 20px;
     justify-content: center;
     position: relative;
+    margin-bottom: 10px;
   }
 
   .detail-hr {
@@ -1006,7 +1007,7 @@ label:focus
     margin: 0;
     display: grid;
     justify-content: center;
-    gap: 5px;
+    gap: 0;
     grid-template-columns: repeat(2, 1fr);
   }
 
